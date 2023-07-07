@@ -217,6 +217,11 @@ export default class RNSketchCanvas extends React.Component {
                 {this.props.eraseComponent}
               </TouchableOpacity>)
             }
+            {this.props.clearComponent && (
+              <TouchableOpacity onPress={() => { this.clear(); this.props.onClearPressed() }}>
+                {this.props.clearComponent}
+              </TouchableOpacity>)
+            }
           </View>
           <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'flex-end' }}>
             {this.props.strokeWidthComponent && (
@@ -228,12 +233,6 @@ export default class RNSketchCanvas extends React.Component {
             {this.props.undoComponent && (
               <TouchableOpacity onPress={() => { this.props.onUndoPressed(this.undo()) }}>
                 {this.props.undoComponent}
-              </TouchableOpacity>)
-            }
-
-            {this.props.clearComponent && (
-              <TouchableOpacity onPress={() => { this.clear(); this.props.onClearPressed() }}>
-                {this.props.clearComponent}
               </TouchableOpacity>)
             }
 
